@@ -138,7 +138,7 @@ gulp.task('js', function () {
 	      quotes: true
 	    }))
 	    .pipe(ngHTML2js({
-	      moduleName: 'uiApp'
+	      moduleName: 'appName'
 	    }));
 	//Collect application JavaScript into a stream
 	var applicationJavaScript = gulp.src('app/**/*.js');
