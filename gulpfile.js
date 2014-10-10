@@ -69,7 +69,8 @@ gulp.task('browser-sync', ['build'], function() {
     browserSync({
         server: {
             baseDir: "dev"
-        }
+        },
+        ghostMode : false
     });
 });
 

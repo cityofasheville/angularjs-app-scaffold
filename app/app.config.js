@@ -5,21 +5,23 @@
 var app = angular.module('appName', ['ui.router', 'ngAnimate']);
  
 //Configure application states and routes
-app.config(function ($stateProvider, $urlRouterProvider) {
+app.config(function ($stateProvider, $urlRouterProvider, $httpProvider) {
+    $httpProvider.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
     $stateProvider
-      .state('app', {
-          url: '/',
-          controller: 'AppCtrl',
+      .state('main', {
+          url: '',
+          templateUrl: 'main/main.html',
+          controller: 'MainCtrl',
         })
-        .state('app.component1', {
-          url: 'component1',
-          templateUrl: 'components/component1/component1.html',
-          controller: 'Component1Ctrl',
+        .state('main.component1', {
+          url: '/component1',
+          templateUrl: 'component1/component1.html',
+          controller: 'Component2Ctrl'
         })
-        .state('app.component2', {
-          url: 'component2',
-          templateUrl: 'components/component2/component1.html',
-          controller: 'Component2Ctrl',
-        })
+        .state('main.component2', {
+          url: '/component2',
+          templateUrl: 'component2/component2.html',
+          controller: 'Component2Ctrl'
+        });
     $urlRouterProvider.otherwise('/');
   });//END config
